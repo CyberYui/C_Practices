@@ -6,6 +6,8 @@
 *.lo
 *.o
 *.obj
+*.ipch
+*.config
 
 # Precompiled Headers
 *.gch
@@ -13,8 +15,10 @@
 
 # Compiled Dynamic libraries
 *.so
+*.suo
 *.dylib
 *.dll
+*.db
 
 # Fortran module files
 *.mod
