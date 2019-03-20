@@ -34,8 +34,20 @@ private:
 class Watch
 {
 public:
-	//主函数中要求传入一个对象，所以要使用拷贝构造函数
-	//导入一个Time对象，再将此对象初始化列表给Watch中实例化的对象
+	//正解如下 :
+	//Watch类中定义了对象成员, 即
+	//Time m_tTime;
+	//以及一个拷贝构造函数
+	//Watch(const Time &t)
+	//的确是类名与拷贝构造函数要同名, 一楼说的没毛病, 是我当时理解错了
+	//该拷贝构造函数传入的是Time类型的引用t, 而t刚刚好是主函数中初始化的
+	//Time t(6, 30, 20);
+	//在这里使用了如下的初始化列表, 意思就是将t的内容传给m_tTime
+	//Watch(const Time &t) :m_tTime(t)
+	//这是一个深拷贝, 即将t对象的数据内容传给了m_tTime, 从而使得当拷贝构造函数执行完毕后, m_tTime有相应的数据成员内容, 即
+	//m_tTime.m_iHour;      //=6
+	//m_tTime.m_iMinute;    //=30
+	//m_tTime.m_iSecond;    //=20
 	Watch(const Time &t) :m_tTime(t)
 	{
 
